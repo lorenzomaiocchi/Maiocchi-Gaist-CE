@@ -22,6 +22,7 @@ table(df$trstlgl)
 
 
 
+
 ## ---- DATAFRAME WITHOUT NAs
 
 df_nona = df %>% 
@@ -29,6 +30,22 @@ df_nona = df %>%
                 ~ if_else(. > 70, NA, .)
                 
                 ))
+
+
+labels_cut = c('Not interested', 'Neutral', 'Interested')
+
+#make a cetogorical of the variables.
+
+df_nona = df_nona %>% 
+  mutate(
+    trstlgl_cat = cut(trstlgl, breaks = c(0, 5, 7, 10), labels = labels_cut),
+    trstplc_cat = cut(trstplc, breaks = c(0, 5, 7, 10), labels = labels_cut),
+    trstprt_cat = cut(trstprt, breaks = c(0, 5, 7, 10), labels = labels_cut),
+    trstprl_cat = cut(trstprl, breaks = c(0, 5, 7, 10), labels = labels_cut))
+    
+
+
+
 #quick check.
 table(df_nona$trstplc)
 
