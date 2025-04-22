@@ -57,19 +57,3 @@ table(df_nona$trstplc)
 df_nona$trust_inst.index = round(rowSums(df_nona[, c("trstprt", "trstlgl", "trstplc", "trstprl")], na.rm = TRUE) / 4,2)
 
 
-
-## ---- DATAFRAME WITH NAs
-
-
-df_filtered = df %>% 
-  filter(trstlgl > 70 & trstplc > 70 & trstprt > 70 & trstprl > 70)
-
-#relabel Nas.
-
-df_filtered = df_wna %>%
-  mutate(across(c("trstlgl", "trstplc", "trstprt", "trstprl"),
-                ~ recode(.,
-                         `77` = 'Refusal',
-                         `88` = 'Don\'t know',
-                         `90` = 'No answer')))
-
