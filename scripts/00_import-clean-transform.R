@@ -27,12 +27,12 @@ table(df$trstlgl)
 
 df_nona = df %>% 
   mutate(across(c("trstlgl", "trstplc", "trstprt", "trstprl"),
-                ~ if_else(. > 70, NA, .)
-                
-                ))
+                ~ if_else(. > 70, NA, .)))
 
 
 labels_cut = c('Very interested', 'Quite interested', 'Hardly interested', 'Not at all interested', 'No answer')
+
+
 
 #make a cetogorical of the variables.
 
@@ -43,6 +43,7 @@ df_nona <- df_nona %>%
                       labels = labels_cut,
                       right = FALSE))
 
+table(df_nona$polintr_cat)
 
 df_nona = df_nona %>% 
   mutate(gender = recode(gndr, `1` = 'M', `2` = 'F'))
