@@ -32,12 +32,16 @@ df_nona %>%
   geom_bar()+
   scale_x_continuous(breaks = 0:10)
 
+
 #index
 
 
-df_nona %>% 
+density_graph = df_nona %>% 
   ggplot(aes(trust_inst.index))+
-  geom_density()
+  geom_density()+
+  theme_classic()
+  
+ggsave('density_plot_index.png',plot = density_graph, path = "./plots/")
 
 
 #how this index changes accross the (NAs are included)
