@@ -32,17 +32,20 @@ df_nona = df %>%
                 ))
 
 
-labels_cut = c('Not interested', 'Neutral', 'Interested')
+labels_cut = c('Very interested', 'Quite interested', 'Hardly interested', 'Not at all interested', 'No answer')
 
 #make a cetogorical of the variables.
 
-df_nona = df_nona %>% 
+df_nona <- df_nona %>%
   mutate(
-    trstlgl_cat = cut(trstlgl, breaks = c(0, 5, 7, 10), labels = labels_cut),
-    trstplc_cat = cut(trstplc, breaks = c(0, 5, 7, 10), labels = labels_cut),
-    trstprt_cat = cut(trstprt, breaks = c(0, 5, 7, 10), labels = labels_cut),
-    trstprl_cat = cut(trstprl, breaks = c(0, 5, 7, 10), labels = labels_cut))
-    
+    polintr_cat = cut(polintr,
+                      breaks = c(0, 1.5, 2.5, 3.5, 4.5, Inf),
+                      labels = labels_cut,
+                      right = FALSE))
+
+
+df_nona = df_nona %>% 
+  mutate(gender = recode(gndr, `1` = 'M', `2` = 'F'))
 
 
 
@@ -69,5 +72,4 @@ df_filtered = df_wna %>%
                          `77` = 'Refusal',
                          `88` = 'Don\'t know',
                          `90` = 'No answer')))
-
 
