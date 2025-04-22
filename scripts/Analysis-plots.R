@@ -57,8 +57,9 @@ df_nona %>%
 
 #result regression
 
+coef_name = c('Intercept (Very interested)', 'Quite interested', 'Hardly interested', 'Not at all interested', 'No answer')
 
 reg = lm(data = df_nona, trust_inst.index ~ polintr_cat)
 
-screenreg(reg)
+screenreg(reg, custom.coef.names = coef_name)
 
