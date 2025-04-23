@@ -70,7 +70,7 @@ boxplot_ind = df_nona %>%
   xlab('')+
   theme(legend.position = 'none')+
   ylab('Trust Mean Index')+
-  theme(axis.text.x = element_text(size = 4, face = 'bold'))
+  theme(axis.text.x = element_text(size = 10, face = 'bold'))
 
 ggsave('boxplot_index_polintr.png',plot = boxplot_ind, path = "./plots/")
 
