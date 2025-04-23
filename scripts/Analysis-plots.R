@@ -1,7 +1,7 @@
 library(tidyverse)
 library(texreg)
 
-#Plot of trust
+#Plot of trust to see the distribiutions
 
 
 
@@ -33,30 +33,43 @@ df_nona %>%
   scale_x_continuous(breaks = 0:10)
 
 
-#index
+
+#plot of the index  of trust
 
 
 density_graph = df_nona %>% 
   ggplot(aes(trust_inst.index))+
+  geom_density(fill = '#86bbd8', color = 'white', alpha = 0.8)+
+  theme_classic()+
+  ylab('Density')+
+  xlab('Trust Mean Index')+
+  labs(title = 'Distribution of Trust Mean Index')
+
+ggsave('density_plot_index.png',plot = density_graph, path = "./plots/")
+
+#graph to  see wheter there a genre differences.
+
+df_nona %>% 
+  ggplot(aes(trust_inst.index, color = polintr_cat))+
   geom_density()+
   theme_classic()
   
-ggsave('density_plot_index.png',plot = density_graph, path = "./plots/")
+
 
 
 #how this index changes accross the (NAs are included)
 
+#bivariate relation; is there a relationship between Interest in politics and Trust in Instituions 
+
 #general trust index
 
 df_nona %>% 
-  ggplot(aes(polintr_cat, trust_inst.index))+
-  geom_boxplot()
+  ggplot(aes(polintr_cat, trust_inst.index, color = polintr_cat))+
+  geom_boxplot()+
+  theme_classic()+
+  xlab('')+
+  theme(legend.position = 'none')
 
-
-
-df_nona %>% 
-  ggplot(aes(polintr_cat, trstlgl))+
-  geom_boxplot()
 
 
 #result regression
