@@ -26,7 +26,7 @@ Trust decreases slightly for the “Hardly interested” group, with the median 
 
 The result of the linear regression (Model 1), help us to quantify the co-variation visualized in point 2.
 
-Taken the reference category "Very interested" with a mean trust index of 5.85, we can clearly see a negative pattern emerging, as we distance from the reference category. A part from "Quite interest" (whose coefficient is not statistically significant, mean the absence of difference from "Very interested"), all of the other groups report lower scores of trust, up to -3.38 for the "No answer". \
+Taken the reference category "Very interested" with a mean trust index of 5.85, we can clearly see a negative pattern emerging, as we distance from the reference category. A part from "Quite interest" (whose coefficient is not statistically significant, mean the absence of difference from "Very interested"), all of the other groups report lower scores of trust, up to -3.38 for the "No answer".\
 The results thus confirm our hypothesis of higher level of trust in the institutions, the higher the level of interest in politics.
 
 ```         
