@@ -47,28 +47,32 @@ density_graph = df_nona %>%
 
 ggsave('density_plot_index.png',plot = density_graph, path = "./plots/")
 
-#graph to  see wheter there a genre differences.
+
+
+### ---- 
+####BIVARIATE RELATIONSHIP
+
+
 
 df_nona %>% 
   ggplot(aes(trust_inst.index, color = polintr_cat))+
   geom_density()+
   theme_classic()
-  
 
+##
 
+#general trust index /boxpolot
 
-#how this index changes accross the (NAs are included)
-
-#bivariate relation; is there a relationship between Interest in politics and Trust in Instituions 
-
-#general trust index
-
-df_nona %>% 
+boxplot_ind = df_nona %>% 
   ggplot(aes(polintr_cat, trust_inst.index, color = polintr_cat))+
   geom_boxplot()+
   theme_classic()+
   xlab('')+
-  theme(legend.position = 'none')
+  theme(legend.position = 'none')+
+  ylab('Trust Mean Index')+
+  theme(axis.text.x = element_text(size = 4, face = 'bold'))
+
+ggsave('boxplot_index_polintr.png',plot = boxplot_ind, path = "./plots/")
 
 
 
